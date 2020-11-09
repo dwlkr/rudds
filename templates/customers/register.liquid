@@ -1,0 +1,175 @@
+{% layout 'customers_register' %}
+      
+  <div class="div-block-348">
+    <div class="utility-page-wrap">
+      <div class="utility-page-content w-form"><img src="{{ '404-error.svg' | asset_url }}" alt="" class="image-59">
+        <h2 class="heading-84">{{ 'customers_register.H2_0' | t }}</h2><a href="/" class="sr-button invert w-button">{{ 'customers_register.A_1' | t }}</a></div>
+    </div>
+  </div>
+  <div class="main-section">
+    <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="header-desktop w-nav">
+      <div class="nav1-menu-wrap-2">
+        <div class="top-icon-flex no-space navbar"><a href="#" class="social-icon top w-inline-block"><img src="{{ 'facebook.png' | asset_url }}" width="15" alt="" class="image-47"></a><a href="#" class="social-icon w-inline-block"><img src="{{ 'instagram-sketched.png' | asset_url }}" width="16" srcset="{{ 'instagram-sketched-p-500.png' | asset_url }} 500w, {{ 'instagram-sketched.png' | asset_url }} 512w" sizes="(max-width: 991px) 100vw, 25px" alt="" class="image-46"></a></div>{% unless customer %}<a href="/account/login" class="slide-button-2 sign-in w-button">{{ 'customers_register.A_2' | t }}</a>{% endunless %}{% if customer %}<a href="/account" class="slide-button-2 sign-in w-button">{{ 'customers_register.A_3' | t }}</a>{% endif %}
+        <div data-node-type="commerce-cart-wrapper" data-open-product="" data-wf-cart-type="rightSidebar" data-wf-cart-query="" data-wf-page-link-href-prefix="" class="w-commerce-commercecartwrapper cart-2"><a href="#" data-node-type="commerce-cart-open-link" class="w-commerce-commercecartopenlink cart-button-2 w-inline-block"><img src="{{ '5ea444450e34982891325943_bag.svg' | asset_url }}" width="20" alt=""><div class="w-commerce-commercecartopenlinkcount cart-quantity-2" udy-el="cart-count">{{ cart.item_count }}</div></a>
+          <div data-node-type="commerce-cart-container-wrapper" style="display:none" class="w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--cartType-rightSidebar cart-wrap-2">
+            <div data-node-type="commerce-cart-container" class="w-commerce-commercecartcontainer cart-container">
+              <div class="w-commerce-commercecartheader cart-header-2"><img src="{{ 'Sam-Wilson-Logo-RV_1.jpg' | asset_url }}" width="83" srcset="{{ 'Sam-Wilson-Logo-RV_1-p-500.jpeg' | asset_url }} 500w, {{ 'Sam-Wilson-Logo-RV_1-p-800.jpeg' | asset_url }} 800w, {{ 'Sam-Wilson-Logo-RV_1-p-1080.jpeg' | asset_url }} 1080w, {{ 'Sam-Wilson-Logo-RV_1-p-1600.jpeg' | asset_url }} 1600w, {{ 'Sam-Wilson-Logo-RV_1-p-2000.jpeg' | asset_url }} 2000w, {{ 'Sam-Wilson-Logo-RV_1.jpg' | asset_url }} 2586w" sizes="100vw" alt="" class="image-40">
+                <h4 class="w-commerce-commercecartheading h2">{{ 'customers_register.H4_4' | t }}</h4><a href="#" data-node-type="commerce-cart-close-link" class="w-commerce-commercecartcloselink close-button w-inline-block"><img src="{{ 'CloseCart2x_1CloseCart2x.png' | asset_url }}" width="11" alt="" class="cart-close-icon"></a></div>
+              <div class="w-commerce-commercecartformwrapper">
+                <form data-node-type="commerce-cart-form" class="w-commerce-commercecartform default-state {% if cart.item_count == 0 %}udesly-display-none{% endif %}">
+                  
+                  
+                  <ul role="list" class="mini-cart-list" udy-el="items-list">
+                    {% for item in cart.items %}<li class="cart-item-2">
+                      <div class="mini-cart-row">
+                        <div class="variations-main-wrapper">
+                          <div class="mini-cart-featured-image" style="background-image: url({{ item | img_url: 'large' }})"></div>
+                          <div class="minicart-info">
+                            <div class="text-block-38">{{ item.product.title }}</div>
+                            <div class="text-block-125">{{ item.price | money }}</div><a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="link-11" udy-el="remove-item">{{ 'customers_register.A_5' | t }}</a></div>
+                        </div>
+                        <div class="cart-quantity-3">{{ item.quantity }}</div>
+                      </div>
+                    </li>{% endfor %}
+                  </ul>
+                  <div class="w-commerce-commercecartfooter cart-footer {% if cart.item_count == 0 %}udesly-display-none{% endif %}" udy-el="cart-actions">
+                    <div class="w-commerce-commercecartlineitem cart-line-item">
+                      <div class="size5-text">{{ 'customers_register.DIV_6' | t }}</div>
+                      <div class="w-commerce-commercecartordervalue size6-text" udy-el="cart-total">{{ cart.total_price | money }}</div>
+                    </div>
+                    <div>
+                      <div data-node-type="commerce-cart-quick-checkout-actions" class="web-payments">
+                        <a data-node-type="commerce-cart-apple-pay-button" style="background-image:-webkit-named-image(apple-pay-logo-white);background-size:100% 50%;background-position:50% 50%;background-repeat:no-repeat" class="w-commerce-commercecartapplepaybutton web-payment-button">
+                          <div></div>
+                        </a><a data-node-type="commerce-cart-quick-checkout-button" style="display:none" class="w-commerce-commercecartquickcheckoutbutton"><svg class="w-commerce-commercequickcheckoutgoogleicon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16"><defs><polygon id="google-mark-a" points="0 .329 3.494 .329 3.494 7.649 0 7.649"></polygon><polygon id="google-mark-c" points=".894 0 13.169 0 13.169 6.443 .894 6.443"></polygon></defs><g fill="none" fill-rule="evenodd"><path fill="#4285F4" d="M10.5967,12.0469 L10.5967,14.0649 L13.1167,14.0649 C14.6047,12.6759 15.4577,10.6209 15.4577,8.1779 C15.4577,7.6339 15.4137,7.0889 15.3257,6.5559 L7.8887,6.5559 L7.8887,9.6329 L12.1507,9.6329 C11.9767,10.6119 11.4147,11.4899 10.5967,12.0469"></path><path fill="#34A853" d="M7.8887,16 C10.0137,16 11.8107,15.289 13.1147,14.067 C13.1147,14.066 13.1157,14.065 13.1167,14.064 L10.5967,12.047 C10.5877,12.053 10.5807,12.061 10.5727,12.067 C9.8607,12.556 8.9507,12.833 7.8887,12.833 C5.8577,12.833 4.1387,11.457 3.4937,9.605 L0.8747,9.605 L0.8747,11.648 C2.2197,14.319 4.9287,16 7.8887,16"></path><g transform="translate(0 4)"><mask id="google-mark-b" fill="#fff"><use xlink:href="#google-mark-a"></use></mask><path fill="#FBBC04" d="M3.4639,5.5337 C3.1369,4.5477 3.1359,3.4727 3.4609,2.4757 L3.4639,2.4777 C3.4679,2.4657 3.4749,2.4547 3.4789,2.4427 L3.4939,0.3287 L0.8939,0.3287 C0.8799,0.3577 0.8599,0.3827 0.8459,0.4117 C-0.2821,2.6667 -0.2821,5.3337 0.8459,7.5887 L0.8459,7.5997 C0.8549,7.6167 0.8659,7.6317 0.8749,7.6487 L3.4939,5.6057 C3.4849,5.5807 3.4729,5.5587 3.4639,5.5337" mask="url(#google-mark-b)"></path></g><mask id="google-mark-d" fill="#fff"><use xlink:href="#google-mark-c"></use></mask><path fill="#EA4335" d="M0.894,4.3291 L3.478,6.4431 C4.113,4.5611 5.843,3.1671 7.889,3.1671 C9.018,3.1451 10.102,3.5781 10.912,4.3671 L13.169,2.0781 C11.733,0.7231 9.85,-0.0219 7.889,0.0001 C4.941,0.0001 2.245,1.6791 0.894,4.3291" mask="url(#google-mark-d)"></path></g></svg><svg class="w-commerce-commercequickcheckoutmicrosofticon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><g fill="none" fill-rule="evenodd"><polygon fill="#F05022" points="7 7 1 7 1 1 7 1"></polygon><polygon fill="#7DB902" points="15 7 9 7 9 1 15 1"></polygon><polygon fill="#00A4EE" points="7 15 1 15 1 9 7 9"></polygon><polygon fill="#FFB700" points="15 15 9 15 9 9 15 9"></polygon></g></svg><div>{{ 'customers_register.DIV_7' | t }}</div></a></div>
+                      <div style="position:relative" data-wf-paypal-button="{&quot;layout&quot;:&quot;horizontal&quot;,&quot;color&quot;:&quot;black&quot;,&quot;shape&quot;:&quot;rect&quot;,&quot;label&quot;:&quot;paypal&quot;,&quot;tagline&quot;:false}" class="paypal">
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;z-index:999;cursor:auto"></div>
+                      </div><a href="/checkout" value="Continue to Checkout" data-node-type="cart-checkout-button" class="w-commerce-commercecartcheckoutbutton main-button-2" data-loading-text="Hang Tight...">{{ 'customers_register.A_8' | t }}</a></div>
+                  </div>
+                </form>
+                <div class="w-commerce-commercecartemptystate empty-state dark-cart-empty-state {% if cart.item_count != 0 %}udesly-display-none{% endif %}" udy-el="no-items-in-cart">
+                  <div>{{ 'customers_register.DIV_9' | t }}</div>
+                </div>
+                <div style="display:none" data-node-type="commerce-cart-error" class="w-commerce-commercecarterrorstate error-message">
+                  <div class="w-cart-error-msg" data-w-cart-quantity-error="Product is not available in this quantity." data-w-cart-checkout-error="Checkout is disabled on this site." data-w-cart-general-error="Something went wrong when adding this item to the cart." data-w-cart-cart_order_min-error="Cart failed.">{{ 'customers_register.DIV_10' | t }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <script id="mini-cart-template">
+          window.udeslyMiniCartTemplate = function(item) {
+            return `<li class="cart-item-2" data-item-id="${item.id}">
+                      <div class="mini-cart-row">
+                        <div class="variations-main-wrapper">
+                          <div class="mini-cart-featured-image" style="background-image: url(${item.image})"></div>
+                          <div class="minicart-info">
+                            <div class="text-block-38">${item.title}</div>
+                            <div class="text-block-125">${item.price}</div><a href="${item.remove}" class="link-11" udy-el="remove-item">remove</a></div>
+                        </div>
+                        <div class="cart-quantity-3">${item.quantity}</div>
+                      </div>
+                    </li>`
+          }
+          </script></div>
+      </div>
+      <div class="container-2 w-container"><a href="#" class="link-block-2 w-inline-block"><img src="{{ 'SR.svg' | asset_url }}" alt="" class="image-43"></a>
+        <div class="div-block-332">
+          <nav role="navigation" class="main-menu top w-nav-menu"><a href="/" class="dropdown topbar">{{ 'customers_register.A_11' | t }}</a><a href="/pages/our-stores" class="dropdown topbar">{{ 'customers_register.A_12' | t }}</a><a href="/pages/about" class="dropdown topbar">{{ 'customers_register.A_13' | t }}</a><a href="/pages/contact" class="dropdown topbar">{{ 'customers_register.A_14' | t }}</a><a href="/blogs/news" class="dropdown topbar">{{ 'customers_register.A_15' | t }}</a><a href="#" class="dropdown topbar">{{ 'customers_register.A_16' | t }}</a></nav>
+          <nav role="navigation" class="shop-menu top w-nav-menu">
+            <div data-hover="1" data-delay="0" class="shop-drop w-dropdown">
+              <div class="dropdown-toggle-2 w-dropdown-toggle">
+                <div class="icon-15 w-icon-dropdown-toggle"></div><a href="https://dwd-test-store.myshopify.com/collections/fabrics-interiors" class="dropdown drop">{{ 'customers_register.A_17' | t }}</a></div>
+              <nav class="w-dropdown-list">
+                <div class="div-block-318"><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_18' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_19' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_20' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_21' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_22' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_23' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_24' | t }}</a></div>
+              </nav>
+            </div>
+            <div data-hover="1" data-delay="0" class="shop-drop w-dropdown">
+              <div class="dropdown-2 w-dropdown-toggle">
+                <div class="icon-15 w-icon-dropdown-toggle"></div><a href="https://dwd-test-store.myshopify.com/collections/home-kitchen" class="dropdown drop">{{ 'customers_register.A_25' | t }}</a></div>
+              <nav class="dropdown-list-8 w-dropdown-list">
+                <div class="div-block-319">
+                  <div class="div-block-318-copy"><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_26' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_27' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_28' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_29' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_30' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_31' | t }}</a></div>
+                  <div class="div-block-318-copy"><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_32' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_33' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_34' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_35' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_36' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_37' | t }}</a></div>
+                </div>
+              </nav>
+            </div>
+            <div data-hover="1" data-delay="0" class="shop-drop w-dropdown">
+              <div class="dropdown-2 w-dropdown-toggle">
+                <div class="w-icon-dropdown-toggle"></div><a href="https://dwd-test-store.myshopify.com/collections/home-kitchen" class="dropdown drop">{{ 'customers_register.A_38' | t }}</a></div>
+              <nav class="dropdown-list-8 w-dropdown-list">
+                <div class="div-block-319">
+                  <div class="div-block-318-copy"><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_39' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_40' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_41' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_42' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_43' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_44' | t }}</a></div>
+                  <div class="div-block-318-copy"><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_45' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_46' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_47' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_48' | t }}</a></div>
+                </div>
+              </nav>
+            </div>
+            <div data-hover="1" data-delay="0" class="shop-drop w-dropdown">
+              <div class="dropdown-2 w-dropdown-toggle">
+                <div class="icon-16 w-icon-dropdown-toggle"></div><a href="#" class="dropdown drop">{{ 'customers_register.A_49' | t }}</a></div>
+              <nav class="w-dropdown-list">
+                <div class="div-block-318"><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_50' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_51' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_52' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_53' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_54' | t }}</a></div>
+              </nav>
+            </div><a href="#" class="dropdown">{{ 'customers_register.A_55' | t }}</a>
+            <div data-hover="1" data-delay="0" class="shop-drop w-dropdown">
+              <div class="dropdown-2 w-dropdown-toggle">
+                <div class="w-icon-dropdown-toggle"></div><a href="#" class="dropdown drop">{{ 'customers_register.A_56' | t }}</a></div>
+              <nav class="w-dropdown-list">
+                <div class="div-block-318"><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_57' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_58' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_59' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_60' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_61' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_62' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_63' | t }}</a><a href="#" class="dropdown dropped w-dropdown-link">{{ 'customers_register.A_64' | t }}</a></div>
+              </nav>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="section-24">
+      <div class="login-logo-wrapper"></div>
+      <div class="register-form---copy-this w-form">{% form 'create_customer' %}
+        {% unless form.posted_successfully? %}<div udesly-add-class="register-form"></div><label for="first_name">{{ 'customers_register.LABEL_65' | t }}</label><input type="text" class="text-field-10 w-input" maxlength="256" name="customer[first_name]" id="first_name" required=""><label for="last_name">{{ 'customers_register.LABEL_66' | t }}</label><input type="text" class="text-field-10 w-input" maxlength="256" name="customer[last_name]" id="last_name" required=""><label for="email">{{ 'customers_register.LABEL_67' | t }}</label><input type="email" class="text-field-10 w-input" maxlength="256" name="customer[email]" id="email" required=""><label for="password">{{ 'customers_register.LABEL_68' | t }}</label><input type="password" class="text-field-10 w-input" maxlength="256" name="customer[password]" id="password" required=""><input type="submit" value="Register" data-wait="Please wait..." class="slide-button login w-button">{% endunless %}
+        
+        
+      </div><div class="register-form---copy-this w-form">{% if form.errors %}<div class="w-form-fail" style="display: inherit;">
+          <div>{% include 'form-errors' %}</div>
+        </div>{% endif %}{% if form.posted_successfully? %}<div class="w-form-done" style="display: inherit;">
+          <div>{{ 'customers_register.DIV_69' | t }}</div>
+        </div>{% endif %}</div>{% endform %}
+    </div>
+  </div>
+  <div class="footer">
+    <div class="featured-product-section less-space">
+      <div class="container-7 w-container">
+        <div class="subscribe-flex-2">
+          <div>
+            <p class="subscribe-text-3">{{ 'customers_register.P_70' | t }}</p>
+          </div>
+          <div>
+            <div class="form-block-2 w-form">
+              <form id="email-form" name="email-form" data-name="Email Form" class="w-clearfix"><input type="email" class="text-field-17 w-input" maxlength="256" name="Sing-up-2" data-name="Sing Up 2" placeholder="Sign up now" id="Sing-up-2" required=""><input type="submit" value="Sign Up" data-wait="Please wait..." class="submit-button-5 w-button"></form>
+              <div class="success-message-3 w-form-done">
+                <div>{{ 'customers_register.DIV_71' | t }}</div>
+              </div>
+              <div class="error-message-7 w-form-fail">
+                <div>{{ 'customers_register.DIV_72' | t }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="w-node-edb548acf33c-48acf32a" class="div-block-168">
+      <div class="div-block-324">
+        <div class="div-block-325"><a href="#" class="dropdown footer">{{ 'customers_register.A_73' | t }}</a><a href="#" class="dropdown footer">{{ 'customers_register.A_74' | t }}</a><a href="#" class="dropdown footer">{{ 'customers_register.A_75' | t }}</a><a href="/pages/contact" class="dropdown footer">{{ 'customers_register.A_76' | t }}</a></div>
+        <div class="div-block-325"><a href="/pages/delivery" class="dropdown footer">{{ 'customers_register.A_77' | t }}</a><a href="/pages/returns" class="dropdown footer">{{ 'customers_register.A_78' | t }}</a><a href="#" class="dropdown footer">{{ 'customers_register.A_79' | t }}</a><a href="#" class="dropdown footer">{{ 'customers_register.A_80' | t }}</a></div>
+      </div>
+      <div class="footer-left-part right-now">
+        <div class="top-icon-flex no-left">
+          <p class="subscribe-text-3">{{ 'customers_register.P_81' | t }}</p>
+        </div>
+        <div class="top-icon-flex no-space"><a href="#" class="social-icon w-inline-block"><img src="{{ 'font-awesome_4-7-0_facebook_300_0_ffffff_none.png' | asset_url }}" width="15" alt=""></a><a href="#" class="social-icon w-inline-block"><img src="{{ 'font-awesome_4-7-0_instagram_300_0_ffffff_none_1.png' | asset_url }}" width="16" alt=""></a><a href="#" class="social-icon w-inline-block"><img src="{{ 'font-awesome_4-7-0_twitter_300_0_ffffff_none.png' | asset_url }}" width="15" alt=""></a></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f61d645b88336c6c3fb519d" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="{{ 'webflow.js' | asset_url }}" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+
+{% include 'notifications' %}{{ 'udesly-shopify.min.js' | asset_url | script_tag }}{{ 'option_selection.js' | shopify_asset_url | script_tag }}
